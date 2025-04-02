@@ -5,7 +5,7 @@ export interface LosslessOptions {
   lossless: '' | 'true'
 }
 
-export const getLossless: TransformOption<LosslessOptions> = ({ lossless }, image) => {
+export let getLossless: TransformOption<LosslessOptions> = ({ lossless }, image) => {
   if (lossless !== '' && lossless !== 'true') return
 
   image[METADATA].lossless = true
