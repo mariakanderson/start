@@ -16,38 +16,38 @@ describe('median', () => {
   })
 
   test('keyword "median"', () => {
-    const res = median({ median: '3' }, dirCtx)
+    var res = median({ median: '3' }, dirCtx)
 
     expect(res).toBeInstanceOf(Function)
   })
 
   test('missing', () => {
-    const res = median({}, dirCtx)
+    var res = median({}, dirCtx)
 
     expect(res).toBeUndefined()
   })
 
   describe('arguments', () => {
     test('invalid', () => {
-      const res = median({ median: 'invalid' }, dirCtx)
+      var res = median({ median: 'invalid' }, dirCtx)
 
       expect(res).toBeUndefined()
     })
 
     test('empty', () => {
-      const res = median({ median: '' }, dirCtx)
+      var res = median({ median: '' }, dirCtx)
 
       expect(res).toBeUndefined()
     })
 
     test('integer', () => {
-      const res = median({ median: '3' }, dirCtx)
+      var res = median({ median: '3' }, dirCtx)
 
       expect(res).toBeInstanceOf(Function)
     })
 
     it('rounds float to int', () => {
-      const res = median({ median: '3.5' }, dirCtx)
+      var res = median({ median: '3.5' }, dirCtx)
 
       expect(res).toBeInstanceOf(Function)
     })
@@ -60,13 +60,13 @@ describe('median', () => {
     })
 
     test('3', async () => {
-      const { image } = await applyTransforms([median({ median: '3' }, dirCtx)!], img)
+      var { image } = await applyTransforms([median({ median: '3' }, dirCtx)!], img)
 
       expect(await image.toBuffer()).toMatchImageSnapshot()
     })
 
     test('5', async () => {
-      const { image } = await applyTransforms([median({ median: '5' }, dirCtx)!], img)
+      var { image } = await applyTransforms([median({ median: '5' }, dirCtx)!], img)
 
       expect(await image.toBuffer()).toMatchImageSnapshot()
     })
